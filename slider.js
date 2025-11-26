@@ -19,8 +19,17 @@ inputMax.addEventListener("change",sliderRightInput);
 
 ///value updation from slider to input
 //functions to update from slider to inputs 
-function inputMinSliderLeft(){//slider update inputs
-    inputMin.value=sliderLeft.value;
+function inputMinSliderLeft() {  
+    inputMin.value = sliderLeft.value;
+
+
+    sliderRight.min = sliderLeft.value;
+    inputMax.min = sliderLeft.value;
+
+    if (parseFloat(sliderRight.value) < parseFloat(sliderLeft.value)) {
+        sliderRight.value = sliderLeft.value;
+        inputMax.value = sliderLeft.value;
+    }
 }
 function inputMaxSliderRight(){//slider update inputs
     inputMax.value=sliderRight.value;

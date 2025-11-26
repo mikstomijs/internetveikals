@@ -1,0 +1,96 @@
+* {
+    font-family:  "Poppins", sans-serif;
+}
+
+.navbar {
+    display: flex;  
+    gap: 20px;
+    align-items: center;
+    outline: 1px solid black;
+    justify-content: space-between;
+    
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding-left: 20px;
+}
+
+.navbar-right {
+ padding-right: 30px;
+ display: flex;
+ gap: 30px;
+}
+
+.navbar a {
+ text-decoration: none;
+ color: rgb(36, 58, 36);
+}
+
+
+.logout_button {
+    float: right;
+    font-size: 16px;
+}
+
+.search_button {
+    font-size: 16px;
+}
+
+.search_input {
+    font-size: 16px;
+    border: 3px solid rgb(160, 156, 156);
+    border-radius: 2%;
+    padding: 5px;
+}
+.cart {
+    display: none;
+    position: absolute;
+    height: auto;
+    width: auto;
+    background-color:white;
+    outline: 1px solid black;
+
+}
+
+
+.cart_button {
+    width: 8rem;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.container_product {
+    display: flex;
+    justify-self: center;
+    margin-top: 15%;
+     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+button {
+    background-color: rgb(213, 210, 210);
+  border: none;
+  cursor: pointer;
+  border-radius: 5%;
+      transition: 0.3s;   
+}
+
+button:hover {
+        background-color: rgb(156, 154, 154);
+    transition: 0.3s;
+}
+
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.quantity {
+    gap: 15px;
+    display: flex;
+}

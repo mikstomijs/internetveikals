@@ -41,8 +41,7 @@ CREATE TABLE IF NOT EXISTS cart_items (
   user_id INTEGER NOT NULL,
   product_id INTEGER NOT NULL,
   quantity INTEGER NOT NULL DEFAULT 1,
-  added_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-  UNIQUE(user_id, product_id)
+  added_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 SQL
 );
@@ -69,14 +68,37 @@ break;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/index.css">
-    <title>Document</title>
+    <title>2a.lv</title>
+     <link rel="icon" type="image/x-icon" href="icon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+
+
+
 <!-- Navbar -->
 <div class="navbar">
+   <div class="navbar-left">
 <p><a href="index.php">2a.lv</a></p>
 <p>Welcome, <?php if(isset($_SESSION['loggedin'])) {echo $_SESSION['name'] . "!";}else {echo "viesi" . "!";} ?></p>
+</div>
 
+
+
+
+
+
+<div class="navbar-center">
+<!-- Meklēšanas josla -->
+<form method="get" action="search.php"><input type="text" name="search" required placeholder="Search anything" class="search_input">
+<button type="submit" class="search_button">Search!</button></form>
+<!-- Meklēšanas josla beigas -->
+</div>
+
+<div class="navbar-right">
+
+
+   <!-- Iepirkumu grozs  -->
 <?php
 if (!isset($_SESSION['loggedin'])) {
    echo "<button id='btnRegister'>Register</button>";
@@ -85,8 +107,10 @@ if (!isset($_SESSION['loggedin'])) {
    echo "<div class=cart_main><button class='cart_button' onclick=cart() >Shopping cart</button>";
 }
 ?>
-<!-- Iepirkumu grozs -->
 <div class="cart" id="cart" style='display: none'>
+
+
+
 
 <?php
 if (isset($_SESSION['user_id'])) {$totalCount = 0; $totalPrice = 0;
@@ -124,19 +148,24 @@ echo "Total sum: " .  $totalPrice . "</div>";}
 
 ?>
 </div>
-<!-- Iepirkumu grozs -->
-<form method="get" action="search.php"><input type="text" name="search" required placeholder="Search anything"> 
-<button type ="submit">Search!</button></form>
-</div>
+<!-- Iepirkumu grozs beigas -->
 
-<form method="post" style="display:inline;">
+
+<!-- Logout poga -->
+<form method="post" >
 <?php 
 if (isset($_SESSION['loggedin']))
-echo '<button type="submit" name="logout">Logout</button>'
-
+echo '<button type="submit" name="logout" class="logout_button">Logout</button>'
 ?>
-
 </form>
+</div>
+<!-- Logout poga beigas-->
+
+
+</div> <!-- Navbar beigas-->
+
+
+
 
 <?php
 if(isset($_POST['logout'])) {
@@ -150,8 +179,7 @@ if(isset($_POST['logout'])) {
 ?>
 
 
-</div>
-<!-- Navbar beigas-->
+
 
 <!-- Galvenais div -->
 <div class="container_main">
@@ -169,25 +197,35 @@ if(isset($_POST['logout'])) {
 
 <?php
 $res = $db->query("SELECT DISTINCT CATEGORY FROM PRODUCTS");
+$count = 0;
 while($row = $res->fetchArray(SQLITE3_ASSOC) ) {
 $category = htmlspecialchars($row['CATEGORY']);
 $categoryTrim = str_replace('_', ' ', $category);
-echo "<div class='filter-item'>
-        <label>$categoryTrim</label>
+
+      $count++;
+
+if ($count >= 10) {
+   echo "<div class='filter-item' style='display: none' id='extrafilter'>
+        <label for='$category'>$categoryTrim</label>
+        <input type='checkbox' name='filter' id='$category' value='$category'>
+      </div>";
+} else {
+   echo "<div class='filter-item'>
+        <label for='$category'>$categoryTrim</label>
         <input type='checkbox' name='filter' id='$category' value='$category'>
       </div>";
 }
 
-$minQuery = $db->query("SELECT MIN(PRICE) FROM PRODUCTS");
-$min = $minQuery->fetchArray(SQLITE3_ASSOC);
+}
+
 $maxQuery = $db->query("SELECT MAX(PRICE) FROM PRODUCTS");
-$max = $maxQuery->fetchArray(SQLITE3_ASSOC);
+$maxNumber = $maxQuery->fetchArray(SQLITE3_ASSOC);
 
-
-
-
+$max = ceil($maxNumber["MAX(PRICE)"] / 100) * 100;
 ?>
 
+
+<button id="extraFilterBtn" onclick="extraFilter()">See more</button>
 
 <div id="rangeBox">
     <div class="range-wrapper">
@@ -197,8 +235,8 @@ $max = $maxQuery->fetchArray(SQLITE3_ASSOC);
             <input type="number" step="5" id="min" name="min" min="1" max="500" required placeholder="Minimal price">
         </div>
         <div class="range-group">
-            <input type="range" id="slider51to100" step="5" min="500" max="<?= $max["MAX(PRICE)"]+1?>">
-            <input type="number" step="5" id="max" name="max" min="500" max="<?= $max["MAX(PRICE)"]+1 ?>" required placeholder="Maximum price">
+            <input type="range" id="slider51to100" step="5" min="500" max="<?= $max+5?>">
+            <input type="number" step="5" id="max" name="max" min="500" max="<?= $max+5 ?>" required placeholder="Maximum price">
         </div>
     </div>
     <button type="submit">Go</button>
@@ -207,7 +245,7 @@ $max = $maxQuery->fetchArray(SQLITE3_ASSOC);
 
 
 
-</div>
+</div> <!-- Filtru beigas -->
 
 <!-- Produktu izvade -->
     <div class="container_products">
