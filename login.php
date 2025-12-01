@@ -49,32 +49,46 @@ EOF;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Internetveikals</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
-
+<div class="navbar">
+   <a href="index.php">2a.lv</a>
+</div>
 
 <div class="container_main">
 
 <label>Login</label>
+
  <form  method="post">
 
+<?php 
+
+if (isset($_SESSION['registerSuccess']) && $_SESSION['registerSuccess'] === true) {
+    echo '<p>Reģistrācija veiksmīga</p>';
+}
+?>
 
    
-                <label for="surname">E-pasts:</label>
-        <input type="text" id="email" name="email" placeholder="Jūsu e-pasts" required><br>
+ <label for="email">Email:</label>
+    <input type="text" id="email" name="email" placeholder="Your email" required autocomplete><br>
 
    
-        <label for="password">Parole:</label>
-        <input type="password" id="password" name="password" placeholder="Parole" required><br>
+<label for="password">Password:</label>
+    <input type="password" id="password" name="password" placeholder="Your password" required><br>
 
-        <input type="checkbox" name="rememberme" value="1"> Atcerēties mani
+
+<div class="checkbox">
+    <label for="rememberme">Remember me</label>
+        <input type="checkbox" id="rememberme" name="rememberme" value="1" >
+</div>
 
         <button type="submit" name="submit">Login</button>
-
-
+        <p>Haven't made an account? <a href=register.php class="register">Register</a></p>
 </form>
 
-
+<!-- Login loģika -->
 <?php 
 
 $loggedIn = false;
@@ -85,10 +99,11 @@ $loggedIn = false;
     $email = $_POST['email'];
     $password = $_POST['password'];
     
-      $stmt = $db->prepare('SELECT * FROM LOGININFO WHERE EMAIl = :email');
+      $stmt = $db->prepare('SELECT * FROM LOGININFO WHERE EMAIL = :email');
       $stmt->bindValue(':email', $email);
           $result = $stmt->execute();
             $row = $result->fetchArray(SQLITE3_ASSOC);
+
        
 if ($row) {
   
@@ -109,11 +124,11 @@ if ($row) {
     }
 
  }
-   
+ // Login loģika beigas  
 
 
 
-
+// Cookie uzstādīšana
 if ($loggedIn) {
    if (!empty($_POST["rememberme"]))
             {
@@ -158,7 +173,7 @@ if ($loggedIn) {
    $db->close();
  
 
-
+// Cookie uzstādīšanas beigas
 
 
 

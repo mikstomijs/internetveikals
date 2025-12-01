@@ -2,99 +2,6 @@
   font-family: "Poppins", sans-serif;
 }
 
-.navbar {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-  outline: 1px solid black;
-  justify-content: space-between;
-}
-
-.navbar-left {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-  padding-left: 20px;
-}
-
-.navbar-right {
-  padding-right: 30px;
-  display: flex;
-  gap: 30px;
-}
-
-.navbar a {
-  text-decoration: none;
-  color: rgb(36, 58, 36);
-}
-
-.logout_button {
-  float: right;
-  font-size: 16px;
-}
-
-.search_button {
-  font-size: 16px;
-}
-
-.search_input {
-  font-size: 16px;
-  border: 3px solid rgb(160, 156, 156);
-  border-radius: 2%;
-  padding: 5px;
-}
-
-.cart {
-  display: none;
-  position: absolute;
-  height: auto;
-  width: auto;
-  background-color: white;
-  outline: 1px solid black;
-}
-
-.cart_button {
-  width: 8rem;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.cart_main {
-  padding-bottom: 10px;
-}
-
-.favorites {
-  display: none;
-  position: absolute;
-  height: auto;
-  width: auto;
-  background-color: white;
-  outline: 1px solid black;
-}
-
-.favorites_button {
-  width: 8rem;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.account {
-  display: none;
-  position: absolute;
-  height: auto;
-  width: auto;
-  background-color: white;
-  outline: 1px solid black;
-  padding: 5px;
-  gap: 10px;
-}
-
-#btnRegister, #btnLogin, #btnAccount {
-  font-size: 16px;
-}
-
 button {
   background-color: rgb(213, 210, 210);
   border: none;
@@ -148,4 +55,69 @@ button:hover {
 
 .container_filter {
   width: 250px;
-}/*# sourceMappingURL=search.css.map */
+}
+
+.mobileFilter {
+  display: none;
+  position: absolute;
+  left: 0;
+}
+
+.mobileFilterInside {
+  display: none;
+  position: absolute;
+  right: 0;
+}
+
+@media only screen and (max-width: 1168px) {
+  .product-card {
+    font-size: 12px;
+    width: 150px;
+    height: 80px;
+  }
+  .grid {
+    grid-template-columns: repeat(3, 160px);
+  }
+  .form {
+    display: flex;
+  }
+}
+@media only screen and (max-width: 780px) {
+  .grid {
+    grid-template-columns: repeat(2, 160px);
+  }
+}
+@media only screen and (max-width: 540px) {
+  .container_filter {
+    width: 250px;
+    display: none;
+    position: absolute;
+    flex-direction: column;
+    margin-left: 5%;
+    text-wrap: nowrap;
+    background: white;
+    outline: 1px solid black;
+    padding: 5px;
+  }
+  .mobileFilterInside {
+    display: block;
+    position: absolute;
+    right: 0;
+  }
+  .temp {
+    display: none;
+  }
+  .filter-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 5px;
+    font-size: 14px;
+  }
+  .container_main {
+    justify-content: space-around;
+  }
+  .mobileFilter {
+    display: block;
+  }
+}

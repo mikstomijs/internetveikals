@@ -1,0 +1,295 @@
+body {
+    overflow-x: hidden;
+}
+
+
+.navbar {
+    display: flex;  
+    gap: 20px;
+    align-items: center;
+    outline: 1px solid black;
+    justify-content: space-between;
+    
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding-left: 20px;
+}
+
+.navbar-right {
+ padding-right: 50px;
+ display: flex;
+ gap: 30px; 
+ align-items: center;
+}
+
+.title {
+ text-decoration: none;
+ color: rgb(36, 58, 36);
+}
+.email {
+    font-size: 12px
+}
+.navbar a {
+    text-decoration: none;
+    font-weight: 600; 
+    color: black;
+}
+
+.logout_button {
+    font-size: 16px;
+    width: 8rem;
+    margin-bottom: 10px;
+}
+
+
+.delete_button {
+        width: 8rem;
+            font-size: 16px;
+}
+
+.search_button {
+    font-size: 16px;
+}
+
+.search_input {
+    font-size: 16px;
+    border: 3px solid rgb(160, 156, 156);
+    border-radius: 2%;
+    padding: 5px;
+
+}
+.cart {
+    display: none;
+    position: absolute;
+    height: auto;
+    width: auto;
+    background-color:white;
+    outline: 1px solid black;
+    padding: 5px;
+    font-size: 12px;
+    width: 125px;
+}
+
+
+.dropdown_product {
+    outline: 1px solid black;
+    padding: 3px;
+    border-radius: 5%; 
+}
+
+
+
+.cart_button {
+    width: 8rem;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+
+}
+.cart_main {
+padding-bottom: 10px;
+}
+
+.favorites {
+    display: none;
+    position: absolute;
+    height: auto;
+    width: auto;
+    background-color:white;
+    outline: 1px solid black;
+    font-size: 12px;
+    width: 125px;
+}
+
+
+
+
+.favorites_button {
+    width: 8rem;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+
+}
+
+
+.favorites_main {
+    padding-bottom: 10px;
+}
+.account {
+    display: none;
+    position: absolute;
+    height: auto;
+    width: auto;
+    background-color:white;
+    outline: 1px solid black;
+    padding: 5px;
+    gap: 10px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    align-items: center;
+    flex-direction: column;
+}
+
+#btnRegister, #btnLogin, #btnAccount {
+    font-size: 16px;
+}
+
+
+.dropdown_wrapper {
+    position: relative;
+    display: inline-block;
+    width: auto;
+}
+
+.dropdown_panel {
+    width: 10rem;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    padding: 10px;
+    border: 1px solid black;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    display: none;
+    z-index: 999;
+}
+
+
+@media only screen and (max-width: 1168px) {
+
+.form {
+    display: flex;
+}
+
+
+}
+
+
+@media only screen and (max-width: 780px) {
+
+.search_input {
+    font-size:12px;
+    height: 70%;
+}
+
+
+#navbar_button {
+    font-size: 12px;
+}
+
+
+.cart {
+    display: none;
+    position: absolute;
+    height: auto;
+    width: auto;
+    background-color:white;
+    outline: 1px solid black;
+    padding: 5px;
+}
+
+
+
+
+
+
+.cart_button {
+    width: 8rem;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+
+}
+.cart_main {
+padding-bottom: 10px;
+}
+
+.favorites {
+    display: none;
+    position: absolute;
+    height: auto;
+    width: auto;
+    background-color:white;
+    outline: 1px solid black;
+}
+
+
+
+
+.favorites_button {
+    width: 8rem;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+
+}
+
+
+.favorites_main {
+    padding-bottom: 10px;
+}
+.account {
+    display: none;  
+    width: auto;
+    background-color:white;
+    outline: 1px solid black;
+    padding: 5px;
+    gap: 10px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+
+
+
+
+}
+
+
+
+@media only screen and (max-width: 540px) {
+.dropdown_panel {
+
+    left: 30%;
+    transform: translateX(-50%);
+
+}
+.navbar {
+    gap: 0;
+}
+
+.container_products {
+        grid-template-columns: repeat(1, 160px);
+
+}
+.welcome {
+    display: none;
+}
+
+.search_input {
+    font-size: 10px;
+     width: 6rem;
+}
+
+.title {
+    font-size: 12px;
+}
+
+#btnAccount {
+    font-size: 12px;
+    height: 2.5rem;
+}
+.cart_button, .favorites_button  {
+    font-size: 12px;
+}
+
+.navbar-right {
+    padding-right: 30px;
+}
+
+}
+

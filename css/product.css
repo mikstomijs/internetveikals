@@ -2,99 +2,6 @@
   font-family: "Poppins", sans-serif;
 }
 
-.navbar {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-  outline: 1px solid black;
-  justify-content: space-between;
-}
-
-.navbar-left {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-  padding-left: 20px;
-}
-
-.navbar-right {
-  padding-right: 30px;
-  display: flex;
-  gap: 30px;
-}
-
-.navbar a {
-  text-decoration: none;
-  color: rgb(36, 58, 36);
-}
-
-.logout_button {
-  float: right;
-  font-size: 16px;
-}
-
-.search_button {
-  font-size: 16px;
-}
-
-.search_input {
-  font-size: 16px;
-  border: 3px solid rgb(160, 156, 156);
-  border-radius: 2%;
-  padding: 5px;
-}
-
-.cart {
-  display: none;
-  position: absolute;
-  height: auto;
-  width: auto;
-  background-color: white;
-  outline: 1px solid black;
-}
-
-.cart_button {
-  width: 8rem;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.cart_main {
-  padding-bottom: 10px;
-}
-
-.favorites {
-  display: none;
-  position: absolute;
-  height: auto;
-  width: auto;
-  background-color: white;
-  outline: 1px solid black;
-}
-
-.favorites_button {
-  width: 8rem;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.account {
-  display: none;
-  position: absolute;
-  height: auto;
-  width: auto;
-  background-color: white;
-  outline: 1px solid black;
-  padding: 5px;
-  gap: 10px;
-}
-
-#btnRegister, #btnLogin, #btnAccount {
-  font-size: 16px;
-}
-
 .container_product {
   display: flex;
   justify-self: center;
@@ -126,6 +33,14 @@ button:hover {
   justify-content: center;
 }
 
+.formQBelow {
+  display: none;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+}
+
 .quantity {
   gap: 15px;
   display: flex;
@@ -146,4 +61,34 @@ button:hover {
   border: none;
   cursor: pointer;
   border-radius: 5%;
-}/*# sourceMappingURL=product.css.map */
+}
+
+@media only screen and (max-width: 540px) {
+  .button_q {
+    height: 3rem;
+  }
+  .left {
+    font-size: 14px;
+    padding: 5px;
+    gap: 10px;
+  }
+  .formQ {
+    display: none;
+    font-size: 14px;
+  }
+  #quantity {
+    height: 3rem;
+  }
+  .formQBelow {
+    display: flex;
+    margin-top: 25px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 5%;
+  }
+  .container_product {
+    width: 70%;
+  }
+}

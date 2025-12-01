@@ -29,7 +29,7 @@ function account() {
     account.style.display = 'none';
     return;
   }
-  account.style.display = 'block';
+  account.style.display = 'flex';
 
 
 
@@ -51,3 +51,22 @@ function favorites() {
   fav.style.display = 'block';
 
 }
+
+
+
+
+
+function mobileFilter() {
+    const mobileFilter = document.getElementById('container_filter');
+  if (!mobileFilter) return;
+
+  const isVisible = mobileFilter.style.display !== 'block';
+  if (isVisible) {
+    mobileFilter.style.display = 'block';
+    return;
+  }
+
+ mobileFilter.style.display = 'none';
+
+}
+
