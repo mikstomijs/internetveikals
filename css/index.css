@@ -141,6 +141,16 @@ button:hover {
     margin-bottom: 5px;
     font-size: 14px;
   }
+.container_products {
+  grid-template-columns: repeat(1, 210px);
+}
+
+.product-card {
+  width: 210px;
+  height: 130px;
+  font-size: 18px;
+}
+
   .container_main {
     justify-content: space-around;
   }

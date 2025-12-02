@@ -252,7 +252,7 @@ padding-bottom: 10px;
 
 
 @media only screen and (max-width: 540px) {
-.dropdown_panel {
+.account.dropdown_panel {
 
     left: 30%;
     transform: translateX(-50%);
@@ -260,28 +260,27 @@ padding-bottom: 10px;
 }
 .navbar {
     gap: 0;
+    height: 4.5rem;
 }
 
-.container_products {
-        grid-template-columns: repeat(1, 160px);
-
-}
 .welcome {
     display: none;
 }
 
 .search_input {
-    font-size: 10px;
+    font-size: 12px;
      width: 6rem;
+     height: 3rem;
 }
 
 .title {
-    font-size: 12px;
+    font-size: 18px;
+    padding: 10px;
 }
 
 #btnAccount {
-    font-size: 12px;
-    height: 2.5rem;
+    font-size: 16px;
+    height: 3rem;
 }
 .cart_button, .favorites_button  {
     font-size: 12px;
